@@ -1,31 +1,31 @@
-name: Bot DF Bolhas
-on:
-  schedule:
-    - cron: '0 18 * * 1' # Roda toda segunda-feira às 15:00
-    - cron: '0 18 * * 3' # Roda toda quarta-feira às 15:00
-    - cron: '0 18 * * 5' # Roda toda sexta-feira às 15:00
-  workflow_dispatch: # Permite que você rode manualmente
+# name: Bot DF Bolhas
+# on:
+#   schedule:
+#     - cron: '0 18 * * 1'
+#     - cron: '0 18 * * 3'
+#     - cron: '0 18 * * 5'
+#   workflow_dispatch:
 
-jobs:
-  executar:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Código
-        uses: actions/checkout@v4
+# jobs:
+#   executar:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout Código
+#         uses: actions/checkout@v4
 
-      - name: Configurar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.14'
+#       - name: Configurar Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: '3.14'
 
-      - name: Instalar Dependências
-        run: |
-          pip install google-auth google-api-python-client google-auth-oauthlib
-          pip install -U google-genai requests
+#       - name: Instalar Dependências
+#         run: |
+#           pip install google-auth google-api-python-client google-auth-oauthlib
+#           pip install -U google-genai requests
 
-      - name: Rodar Bot
-        env:
-          BLOGGER_TOKEN_BASE64: ${{ secrets.BLOGGER_TOKEN_BASE64 }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-        run: python run_bot.py
+#       - name: Rodar Bot
+#         env:
+#           BLOGGER_TOKEN_BASE64: ${{ secrets.BLOGGER_TOKEN_BASE64 }}
+#           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+#           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+#         run: python run_bot.py
