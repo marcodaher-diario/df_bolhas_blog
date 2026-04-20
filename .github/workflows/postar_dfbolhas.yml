@@ -1,5 +1,5 @@
 name: Bot DF Bolhas
-on:
+""" on:
   schedule:
     - cron: '0 18 * * 1' # Roda toda segunda-feira às 15:00
     - cron: '0 18 * * 3' # Roda toda quarta-feira às 15:00
@@ -29,3 +29,4 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: python run_bot.py
+  """
